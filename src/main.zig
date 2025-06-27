@@ -96,3 +96,20 @@ test "encoding" {
         try std.testing.expectEqualStrings(case.expected, result);
     }
 }
+
+test "encode_length" {
+    const test_cases = [_]struct { input: []const u8, expected: usize }{
+        .{ .input = "", .expected = 0 },
+        .{ .input = "f", .expected = 4 },
+        .{ .input = "fo", .expected = 4 },
+        .{ .input = "foo", .expected = 4 },
+        .{ .input = "foob", .expected = 8 },
+        .{ .input = "fooba", .expected = 8 },
+        .{ .input = "foobar", .expected = 8 },
+    };
+
+    for (test_cases) |case| {
+        const result = baze64._calc_encode_length(case.input);
+        try std.testing.expectEqual(case.expected, result);
+    }
+}

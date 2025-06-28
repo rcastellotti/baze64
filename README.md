@@ -12,6 +12,14 @@ Options:
   -h, --help          Show this help message
 ```
 
+```bash
+rc@bearbook ~/baze64 (main)> zig run src/main.zig -- --encode "i love bears!"
+rc@bearbook ~/baze64 (main)> aSBsb3ZlIGJlYXJzIQ==
+rc@bearbook ~/baze64 (main)> zig run src/main.zig -- --decode "aSBsb3ZlIGJlYXJzIQ=="
+rc@bearbook ~/baze64 (main)> i love bears!                                                                                                                                        
+```
+
+
 # References
 
 1. https://pedropark99.github.io/zig-book/Chapters/01-base64.html
